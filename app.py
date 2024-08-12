@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from threading import Thread
 from bot import TradingBot
-from binance.client import Client
 import logging
 
 # Configuração de logging
@@ -14,14 +13,10 @@ bot = None
 
 # Função para obter todos os pares de negociação da Binance
 def get_all_pairs(api_key, api_secret):
-    try:
-        client = Client(api_key, api_secret)
-        exchange_info = client.get_exchange_info()
-        symbols = [symbol['symbol'] for symbol in exchange_info['symbols']]
-        return symbols
-    except Exception as e:
-        logging.error(f"Erro ao obter pares de moedas: {e}")
-        return []
+    client = Client(api_key, api_secret)
+    exchange_info = client.get_exchange_info()
+    symbols = [symbol['symbol'] for symbol in exchange_info['symbols']]
+    return symbols
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
