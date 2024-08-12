@@ -32,7 +32,7 @@ def index():
             bot.stop()
 
     status = "Rodando" if bot and bot.is_running else "Parado"
-    return render_template('index.html', pairs=pairs, selected_pairs=selected_pairs, status=status, api_key=api_key, api_secret=api_secret)
+    return render_template('template/index.html', pairs=pairs, selected_pairs=selected_pairs, status=status, api_key=api_key, api_secret=api_secret)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
