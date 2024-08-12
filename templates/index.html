@@ -60,9 +60,9 @@
         <fieldset>
             <legend>Digite suas credenciais da Binance:</legend>
             <label for="api_key">API Key:</label>
-            <input type="text" id="api_key" name="api_key" value="" required>
+            <input type="text" id="api_key" name="api_key" value="{{ api_key or '' }}" required>
             <label for="api_secret">Secret Key:</label>
-            <input type="password" id="api_secret" name="api_secret" value="" required>
+            <input type="password" id="api_secret" name="api_secret" value="{{ api_secret or '' }}" required>
         </fieldset>
 
         <fieldset>
